@@ -3,8 +3,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /*
- * JVM·|¦Û°Ê¦bClasspath¤¤´M§ä¾A·íªºÅX°Êµ{¦¡¡A¦b¥]¸Ë¦³JDBCÅX°Êµ{¦¡ªºJARÀÉ®×¤¤¡A
- * ¥²¶·¦³¤@­Ó "META-INF/services/java.sql.Driver"ÀÉ®×¡A·í¤¤¼¶¼gÅX°Êµ{¦¡Ãş§O¦WºÙ
+ * JVMæœƒè‡ªå‹•åœ¨Classpathä¸­å°‹æ‰¾é©ç•¶çš„é©…å‹•ç¨‹å¼ï¼Œåœ¨åŒ…è£æœ‰JDBCé©…å‹•ç¨‹å¼çš„JARæª”æ¡ˆä¸­ï¼Œ
+ * å¿…é ˆæœ‰ä¸€å€‹ "META-INF/services/java.sql.Driver"æª”æ¡ˆï¼Œç•¶ä¸­æ’°å¯«é©…å‹•ç¨‹å¼é¡åˆ¥åç¨±
  */
 public class DBConnectionDemo2 {
 	public static void main(String[] args) {
@@ -12,20 +12,20 @@ public class DBConnectionDemo2 {
 		String url = "jdbc:mysql://localhost:3306/matchman?user=root&password=such0720&useUnicode=true&characterEncoding=UTF-8";
 		try {
 			/*
-			 * ¦bJDBC 4.0¤§«e¡A¦pªG±z­n³s±µ¸ê®Æ®wªº¸Ü¡A¥²¶·¨Ï¥ÎClass.forName()¨Ã«ü©wÅX°Êµ{¦¡Ãş§O¦WºÙ¡A¥H¸ü¤JJDBCÅX°Ê¡A
-			 * ¦bJDBC 4.0¤§¤¤¡A¤£»İ­n¦A©I¥sClass.forName()¨Ã«ü©wÅX°Êµ{¦¡¤F
+			 * åœ¨JDBC 4.0ä¹‹å‰ï¼Œå¦‚æœæ‚¨è¦é€£æ¥è³‡æ–™åº«çš„è©±ï¼Œå¿…é ˆä½¿ç”¨Class.forName()ä¸¦æŒ‡å®šé©…å‹•ç¨‹å¼é¡åˆ¥åç¨±ï¼Œä»¥è¼‰å…¥JDBCé©…å‹•ï¼Œ
+			 * åœ¨JDBC 4.0ä¹‹ä¸­ï¼Œä¸éœ€è¦å†å‘¼å«Class.forName()ä¸¦æŒ‡å®šé©…å‹•ç¨‹å¼äº†
 			 */
 			// Class.forName(driver);
 			Connection conn = DriverManager.getConnection(url);
 
 			if (conn != null && !conn.isClosed()) {
-				System.out.println("¸ê®Æ®w³s½u´ú¸Õ¦¨¥\¡I");
+				System.out.println("è³‡æ–™åº«é€£ç·šæ¸¬è©¦æˆåŠŸï¼");
 				conn.close();
 			}
-			// ¤£¨Ï¥ÎClass.forNameªº¸Ü¡A´N¤£¶·­n³o­ÓException¡A¤£µM·|compile error.
+			// ä¸ä½¿ç”¨Class.forNameçš„è©±ï¼Œå°±ä¸é ˆè¦é€™å€‹Exceptionï¼Œä¸ç„¶æœƒcompile error
 			/*
 			 * } catch (ClassNotFoundException e) {
-			 * System.out.println("§ä¤£¨ìÅX°Êµ{¦¡Ãş§O"); e.printStackTrace();
+			 * System.out.println("æ‰¾ä¸åˆ°é©…å‹•ç¨‹å¼é¡åˆ¥"); e.printStackTrace();
 			 */} catch (SQLException e) {
 			e.printStackTrace();
 		}

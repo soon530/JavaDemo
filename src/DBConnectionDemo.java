@@ -2,8 +2,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/* 
- * ¦b¨Ï¥ÎgetConnection()ªº®É­Ô¡A¤]¥i¥H§âuser & password¤À¶}¨Ó¼g 
+/*
+ * åœ¨ä½¿ç”¨getConnection()çš„æ™‚å€™ï¼Œä¹Ÿå¯ä»¥æŠŠuser & passwordåˆ†é–‹ä¾†å¯« 
  * String url = "jdbc:mysql://localhost:3306/matchman";
  * String user = "root";
  * String password = "such0720";
@@ -11,24 +11,24 @@ import java.sql.SQLException;
  */
 public class DBConnectionDemo {
 	public static void main(String[] args) {
-		// ¨C¤@­Ódriver¦r¦ê³£¤£¤Ó¤@¼Ë
+		// æ¯ä¸€å€‹driverå­—ä¸²éƒ½ä¸å¤ªä¸€æ¨£
 		String driver = "com.mysql.jdbc.Driver";
-		// ¦]¬°­n¥Î¤¤¤å¡A©Ò¥H´N§â©Ò¦³ªº¸ê°T³£¥Îurl¨Óªí¥Ü¡A¤£±Nuser & password¤À¶}
+		// å› ç‚ºè¦ç”¨ä¸­æ–‡ï¼Œæ‰€ä»¥å°±æŠŠæ‰€æœ‰çš„è³‡è¨Šéƒ½ç”¨urlä¾†è¡¨ç¤ºï¼Œä¸å°‡user & passwordåˆ†é–‹
 		String url = "jdbc:mysql://localhost:3306/matchman?user=root&password=such0720&useUnicode=true&characterEncoding=UTF-8";
 		try {
 			/* 
-			 * ³z¹Ljava.lang.ClassÃş§OªºforName()¨Ó¸ü¤J¨Ã¦VDriverManagerµù¥UJDBCÅX°Êµ{¦¡
-			 * ¡]ÅX°Êµ{¦¡·|¦Û°Ê³z¹LDriverManager.registerDriver()¤èªkµù¥U¡^
-			 */
+			 * é€éjava.lang.Classé¡åˆ¥çš„forName()ä¾†è¼‰å…¥ä¸¦å‘DriverManagerè¨»å†ŠJDBCé©…å‹•ç¨‹å¼
+			 * ï¼ˆé©…å‹•ç¨‹å¼æœƒè‡ªå‹•é€éDriverManager.registerDriver()æ–¹æ³•è¨»å†Šï¼‰
+			*/
 			Class.forName(driver);
 			Connection conn = DriverManager.getConnection(url);
 
 			if (conn != null && !conn.isClosed()) {
-				System.out.println("¸ê®Æ®w³s½u´ú¸Õ¦¨¥\¡I");
+				System.out.println("è³‡æ–™åº«é€£ç·šæ¸¬è©¦æˆåŠŸï¼");
 				conn.close();
 			}
 		} catch (ClassNotFoundException e) {
-			System.out.println("§ä¤£¨ìÅX°Êµ{¦¡Ãş§O");
+			System.out.println("æ‰¾ä¸åˆ°é©…å‹•ç¨‹å¼é¡åˆ¥");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
